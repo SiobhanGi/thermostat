@@ -83,4 +83,12 @@ describe('Thermostat', function(){
       expect(thermostat.usage()).toEqual('High usage')
     })
   })
+
+  describe('#psmToggle', function(){
+    it('sets powersaving mode to false if true', function(){
+      thermostat.psOff();
+      thermostat.psmToggle();
+      expect(thermostat.powerSaving).toEqual(true)
+    })
+  })
 })

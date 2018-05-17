@@ -42,3 +42,11 @@ Thermostat.prototype.usage = function (){
     return 'High usage';
   }
 }
+
+Thermostat.prototype.psmToggle = function(){
+  if (this.powerSaving = true ) {
+    this.psOff;
+  } else {
+    this.psOn;
+  }
+}

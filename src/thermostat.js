@@ -28,3 +28,7 @@ Thermostat.prototype.psOff = function (){
   this.powerSaving = false
   this._maxTemp = this._maxTempLookup.nPSM
 }
+
+Thermostat.prototype.resetTemp = function (temp = new Temperature){
+  this.temp = temp.default
+}

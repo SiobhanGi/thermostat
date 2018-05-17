@@ -58,4 +58,11 @@ describe('Thermostat', function(){
       expect(thermostat._maxTemp).toEqual(thermostat._maxTempLookup.nPSM)
     });
   })
+
+  describe('#reset', function(){
+    it('it sets the temperature back to default', function(){
+      thermostat.resetTemp()
+      expect(thermostat.temp).toEqual(20)
+    })
+  })
 })

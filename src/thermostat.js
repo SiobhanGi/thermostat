@@ -5,6 +5,10 @@ function Thermostat(temp = new Temperature()) {
   this._minTemp = MIN_TEMP;
   this._maxTemp = 25;
   this.powerSaving = true;
+  this._maxTempLookup = {
+    PSM: 25,
+    nPSM: 32
+  }
 }
 
 Thermostat.prototype.up = function (){
@@ -17,8 +21,10 @@ Thermostat.prototype.down = function (){
 
 Thermostat.prototype.psOn = function (){
   this.powerSaving = true
+  this._maxTemp = this._maxTempLookup.PSM
 }
 
 Thermostat.prototype.psOff = function (){
   this.powerSaving = false
+  this._maxTemp = this._maxTempLookup.nPSM
 }

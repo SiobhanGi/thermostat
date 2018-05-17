@@ -5,21 +5,24 @@
     <title>Thermostat</title>
     <script type="text/javascript" src="../src/temperature.js"></script>
     <script type="text/javascript" src="../src/thermostat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/interface.js"></script>
   </head>
+
   <body>
     <div class="thermostat">
-      <div class="controls">
-        <button type="button" name="up">Up</button>
-        <button type="button" name="down">Down</button>
-        <button type="button" name="Reset">Reset</button>
-        <button type="button" name="PSM">PSM</button>
-      </div><!--controls-->
-      <div class="screen">
+      <span class="controls">
+        <button type="button" id="up">Up</button>
+        <button type="button" id="down">Down</button>
+        <button type="button" id="reset">Reset</button>
+        <button type="button" id="psm">PSM</button>
+      </span><!--controls-->
+      <span class="screen">
         <div class="temperature">
 
         </div> <!--temperature-->
         <h1></h1>
-      </div><!--screen-->
+      </span><!--screen-->
     </div><!--thermostat-->
   </body>
 </html>

@@ -32,3 +32,13 @@ Thermostat.prototype.psOff = function (){
 Thermostat.prototype.resetTemp = function (temp = new Temperature){
   this.temp = temp.default
 }
+
+Thermostat.prototype.usage = function (){
+  if (this.temp < 18) {
+    return 'Low usage';
+  } else if (this.temp < 25) {
+    return 'Medium usage';
+  } else {
+    return 'High usage';
+  }
+}

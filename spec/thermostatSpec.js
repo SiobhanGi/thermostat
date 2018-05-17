@@ -65,4 +65,22 @@ describe('Thermostat', function(){
       expect(thermostat.temp).toEqual(20)
     })
   })
+
+  describe('#usage', function(){
+    it('returns low usage', function() {
+      for(var i = 0; i < 8; i ++ ) {
+        thermostat.down();
+      }
+      expect(thermostat.usage()).toEqual('Low usage')
+    })
+    it('returns medium usage', function() {
+      expect(thermostat.usage()).toEqual('Medium usage')
+    })
+    it('returns high usage', function() {
+      for(var i = 0; i < 6; i ++ ) {
+        thermostat.up();
+      }
+      expect(thermostat.usage()).toEqual('High usage')
+    })
+  })
 })

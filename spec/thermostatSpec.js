@@ -19,6 +19,13 @@ describe('Thermostat', function(){
       thermostat.up()
       expect(thermostat.temp).toBeGreaterThan(temp.default)
     })
+    it('doesnt exceed max temp', function(){
+      thermostat.psOn()
+      for(var i = 0; i < 6; i++) {
+      thermostat.up();
+      }
+      expect(thermostat.temp).toEqual(thermostat._maxTemp)
+    })
   })
 
   describe('#down', function(){
@@ -46,6 +53,14 @@ describe('Thermostat', function(){
     it('sets the max temperature to set dictionary value', function(){
       expect(thermostat._maxTemp).toEqual(thermostat._maxTempLookup.PSM)
     });
+
+    it('resets temp if current temp exceeds max psm temp when psOn', function(){
+      for(var i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      thermostat.psOn()
+      expect(thermostat.temp).toEqual(thermostat._maxTempLookup.PSM)
+    })
   })
 
   describe('#psOff', function(){
@@ -89,6 +104,11 @@ describe('Thermostat', function(){
       thermostat.psOff();
       thermostat.psmToggle();
       expect(thermostat.powerSaving).toEqual(true)
+    })
+    it('sets powersaving mode to true if false', function(){
+      thermostat.psOn();
+      thermostat.psmToggle();
+      expect(thermostat.powerSaving).toEqual(false)
     })
   })
 })

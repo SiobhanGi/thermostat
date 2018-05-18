@@ -12,25 +12,32 @@ function Thermostat(temp = new Temperature()) {
 }
 
 Thermostat.prototype.up = function (){
-  this.temp ++
+  if (this.temp === this._maxTemp) {
+    this.temp = this._maxTemp;
+  } else {
+    this.temp ++
+  }
 }
 
 Thermostat.prototype.down = function (){
   this.temp --
 }
 
+Thermostat.prototype.resetTemp = function (temp = new Temperature){
+  this.temp = temp.default
+}
+
 Thermostat.prototype.psOn = function (){
   this.powerSaving = true
   this._maxTemp = this._maxTempLookup.PSM
+  if (this.temp > this._maxTemp) {
+    this.temp = this._maxTempLookup.PSM
+  }
 }
 
 Thermostat.prototype.psOff = function (){
   this.powerSaving = false
   this._maxTemp = this._maxTempLookup.nPSM
-}
-
-Thermostat.prototype.resetTemp = function (temp = new Temperature){
-  this.temp = temp.default
 }
 
 Thermostat.prototype.usage = function (){
@@ -44,9 +51,9 @@ Thermostat.prototype.usage = function (){
 }
 
 Thermostat.prototype.psmToggle = function(){
-  if (this.powerSaving = true ) {
-    this.psOff;
+  if (this.powerSaving === true ) {
+    return this.psOff();
   } else {
-    this.psOn;
+    return this.psOn();
   }
 }

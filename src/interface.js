@@ -1,23 +1,42 @@
 $(function(){
   var thermostat = new Thermostat()
 
+
+// debugger
+  function tempColour() {
+    if (thermostat.usage() === "Low usage") {
+      $(".temp").css("color", "#8fc866");
+    } else if (thermostat.usage() === "Medium usage") {
+      $(".temp").css("color", "#ffa260");
+    } else {
+      $(".temp").css("color", "#ef6eae");
+    }
+  }
+
+  $(".temp").text(thermostat.temp);
+  tempColour();
+
   $("#up").click(function(){
     thermostat.up()
-    console.log(thermostat.temp)
-
+    tempColour();
+    $(".temp").text(thermostat.temp);
   });
 
   $("#down").click(function(){
     thermostat.down()
-    console.log(thermostat.temp)
+    tempColour();
+    $(".temp").text(thermostat.temp);
   });
 
   $("#reset").click(function(){
     thermostat.resetTemp()
-    console.log(thermostat.temp)
+    tempColour();
+    $(".temp").text(thermostat.temp);
   });
 
-  // $("psm").click(function(){
-  //   thermostat.
-  // })
+  $("#psmToggle").click(function(){
+    thermostat.psmToggle();
+    tempColour();
+    $(".temp").text(thermostat.temp);
+  })
 });

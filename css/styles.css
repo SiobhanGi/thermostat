@@ -14,7 +14,7 @@ body {
 .thermostat {
   position: relative;
   width: 320px;
-  height: 270px;
+  height: 350px;
   top: 3em;
   left: 3em;
   border: 3px solid #5c5e5d;
@@ -46,7 +46,7 @@ border: 3px solid #5c5e5d;
 
 .controls {
   position: relative;
-  top: 2em;
+  top: 5em;
   margin: 0.8em;
   display: flex;
   flex-wrap: wrap;

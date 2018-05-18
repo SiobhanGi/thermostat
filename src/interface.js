@@ -13,30 +13,30 @@ $(function(){
     }
   }
 
-  $(".temp").text(thermostat.temp);
+  $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   tempColour();
 
   $("#up").click(function(){
     thermostat.up()
     tempColour();
-    $(".temp").text(thermostat.temp);
+    $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   });
 
   $("#down").click(function(){
     thermostat.down()
     tempColour();
-    $(".temp").text(thermostat.temp);
+    $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   });
 
   $("#reset").click(function(){
     thermostat.resetTemp()
     tempColour();
-    $(".temp").text(thermostat.temp);
+    $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   });
 
   $("#psmToggle").click(function(){
     thermostat.psmToggle();
     tempColour();
-    $(".temp").text(thermostat.temp);
+    $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   })
 });

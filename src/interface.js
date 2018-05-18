@@ -11,6 +11,18 @@ $(function(){
     }
   }
 
+  function psmMessage() {
+    $("#psmMessage").text(function() {
+      if (thermostat.powerSaving === true) {
+        return "PSM";
+      } else {
+        return "";
+      }
+    })
+  };
+
+   psmMessage();
+
   $(".temp").text((thermostat.temp)+String.fromCharCode(176));
   tempColour();
 
@@ -36,5 +48,6 @@ $(function(){
     thermostat.psmToggle();
     tempColour();
     $(".temp").text((thermostat.temp)+String.fromCharCode(176));
+    psmMessage();
   })
 });

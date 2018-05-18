@@ -57,6 +57,14 @@ border: 3px solid #5c5e5d;
   margin-top: 0.25rem;
 }
 
+#psmMessage {
+  position: absolute;
+  left: 225px;
+  top: 100px;
+  text-align: left;
+}
+
+
 button:hover,
 button:focus {
   ;

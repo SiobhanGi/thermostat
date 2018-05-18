@@ -1,8 +1,6 @@
 $(function(){
   var thermostat = new Thermostat()
 
-
-// debugger
   function tempColour() {
     if (thermostat.usage() === "Low usage") {
       $(".temp").css("color", "#8fc866");
